@@ -25,15 +25,15 @@ It helps optimize performance by preventing unnecessary re-executions or re-rend
 This prevents expensive computations from running on every render.
 
 
-## 🧱 React.memo
+## 🧱 `React.memo`
 
 `React.memo` is a Higher-Order Component (HOC) that memoizes a component, preventing unnecessary re-renders.
 When you wrap a functional component with React.memo, React will re-render it only if its props have changed (based on a shallow comparison).
 
 This is especially useful when:
--You have a child component that receives props which do not change often.
--The parent component re-renders frequently for other reasons.
--You want to improve performance by avoiding useless re-rendering of the child.
+- You have a child component that receives props which do not change often.
+- The parent component re-renders frequently for other reasons.
+- You want to improve performance by avoiding useless re-rendering of the child.
 
 In this project, React.memo was used together with useCallback:
 React.memo keeps the child render stable if props don’t change.
