@@ -24,6 +24,22 @@ It helps optimize performance by preventing unnecessary re-executions or re-rend
 `useMemo` is a React Hook that memoizes the **result of a function**, recalculating it only when its dependencies change.  
 This prevents expensive computations from running on every render.
 
+
+## 🧱 React.memo
+
+`React.memo` is a Higher-Order Component (HOC) that memoizes a component, preventing unnecessary re-renders.
+When you wrap a functional component with React.memo, React will re-render it only if its props have changed (based on a shallow comparison).
+
+This is especially useful when:
+-You have a child component that receives props which do not change often.
+-The parent component re-renders frequently for other reasons.
+-You want to improve performance by avoiding useless re-rendering of the child.
+
+In this project, React.memo was used together with useCallback:
+React.memo keeps the child render stable if props don’t change.
+useCallback keeps the function reference stable so React considers the prop unchanged.
+Together, they prevent unnecessary renders and make the app more efficient.
+
 ---
 
 ## 🧩 In this example
@@ -32,7 +48,7 @@ The project includes:
 
 - a **counter** that increments when you click the button,
 - an **input field** that displays the length of the entered text,
-- and a **child component button** to test re-render behavior.
+- a **child component button** to test re-render behavior.
 
 ### `useMemo` usage
 
